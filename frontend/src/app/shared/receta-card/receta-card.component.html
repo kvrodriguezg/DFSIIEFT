@@ -1,0 +1,16 @@
+<div class="categoria text-center">
+  <img [src]="receta.imagen" [alt]="receta.nombre" class="img-fluid" />
+  <h3>{{ receta.nombre }}</h3>
+
+  <div class="d-flex justify-content-center gap-2 mt-2">
+    <button *ngIf="mostrarFavorito" class="btn btn-warning btn-sm mb-2" (click)="toggleFavorito(receta.nombre)">
+      <i class="ti" [ngClass]="{
+        'ti-star-filled': receta.esFavorita,
+        'ti-star': !receta.esFavorita
+      }"></i>
+    </button>
+    <button class="btn btn-primary btn-sm mb-2" (click)="verDetalle.emit()">
+      <i class="ti ti-eye"></i>
+    </button>
+  </div>
+</div>

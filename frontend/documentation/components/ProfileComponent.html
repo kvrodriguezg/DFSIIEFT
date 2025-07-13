@@ -1,0 +1,980 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProfileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/profile/profile.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente que representa el perfil del usuario,
+permite visualizar y actualizar sus datos personales.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-profile</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./profile.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./profile.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#perfilForm" >perfilForm</a>
+                            </li>
+                            <li>
+                                <a href="#rut" >rut</a>
+                            </li>
+                            <li>
+                                <a href="#sesion" >sesion</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#campoInvalido" >campoInvalido</a>
+                            </li>
+                            <li>
+                                <a href="#emailPersonalizadoValidator" >emailPersonalizadoValidator</a>
+                            </li>
+                            <li>
+                                <a href="#guardarCambios" >guardarCambios</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#validarEdadMinima" >validarEdadMinima</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router, fb: FormBuilder)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/profile/profile.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="campoInvalido"></a>
+                    <span class="name">
+                        <span ><b>campoInvalido</b></span>
+                        <a href="#campoInvalido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>campoInvalido(campo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/pages/profile/profile.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>campo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emailPersonalizadoValidator"></a>
+                    <span class="name">
+                        <span ><b>emailPersonalizadoValidator</b></span>
+                        <a href="#emailPersonalizadoValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>emailPersonalizadoValidator()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/pages/profile/profile.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarCambios"></a>
+                    <span class="name">
+                        <span ><b>guardarCambios</b></span>
+                        <a href="#guardarCambios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarCambios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/pages/profile/profile.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/pages/profile/profile.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validarEdadMinima"></a>
+                    <span class="name">
+                        <span ><b>validarEdadMinima</b></span>
+                        <a href="#validarEdadMinima"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validarEdadMinima(minEdad: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/pages/profile/profile.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>minEdad</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perfilForm"></a>
+                    <span class="name">
+                        <span ><b>perfilForm</b></span>
+                        <a href="#perfilForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/profile/profile.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rut"></a>
+                    <span class="name">
+                        <span ><b>rut</b></span>
+                        <a href="#rut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/profile/profile.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sesion"></a>
+                    <span class="name">
+                        <span ><b>sesion</b></span>
+                        <a href="#sesion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/profile/profile.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/profile/profile.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+/**
+ * Componente que representa el perfil del usuario,
+ * permite visualizar y actualizar sus datos personales.
+ *
+ * @export
+ * @class ProfileComponent
+ * @implements {OnInit}
+ */
+@Component({
+  selector: &#x27;app-profile&#x27;,
+  templateUrl: &#x27;./profile.component.html&#x27;,
+  styleUrls: [&#x27;./profile.component.css&#x27;]
+})
+export class ProfileComponent implements OnInit {
+  perfilForm!: FormGroup;
+  sesion: any;
+  usuarios: any[] &#x3D; [];
+  rut: string &#x3D; &#x27;&#x27;;
+
+  constructor(private router: Router, private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    const sesionStorage &#x3D; localStorage.getItem(&#x27;sesion&#x27;);
+    const usuariosStorage &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+
+    if (!sesionStorage) {
+      this.router.navigate([&#x27;/&#x27;]);
+      return;
+    }
+
+    this.sesion &#x3D; JSON.parse(sesionStorage);
+    this.usuarios &#x3D; usuariosStorage ? JSON.parse(usuariosStorage) : [];
+
+    const usuario &#x3D; this.usuarios.find(u &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; this.sesion.email);
+    if (!usuario) return;
+
+    this.rut &#x3D; usuario.rut || &#x27;&#x27;;
+
+    this.perfilForm &#x3D; this.fb.group({
+      nombre: [usuario.nombre || &#x27;&#x27;, Validators.required],
+      email: [
+        usuario.email || &#x27;&#x27;,
+        [
+          Validators.required,
+          Validators.email,
+          this.emailPersonalizadoValidator()
+        ]
+      ],
+      telefono: [usuario.telefono || &#x27;&#x27;, [Validators.required, Validators.pattern(/^\d{9}$/)]],
+      fechaNacimiento: [usuario.fechaNacimiento || &#x27;&#x27;, [Validators.required, this.validarEdadMinima(13)]]
+    });
+  }
+
+  campoInvalido(campo: string): boolean {
+    const control &#x3D; this.perfilForm.get(campo);
+    return !!control &amp;&amp; control.invalid &amp;&amp; control.touched;
+  }
+
+  guardarCambios(): void {
+    if (this.perfilForm.invalid) {
+      this.perfilForm.markAllAsTouched();
+      return;
+    }
+
+    const formData &#x3D; this.perfilForm.value;
+    const index &#x3D; this.usuarios.findIndex(u &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; this.sesion.email);
+    if (index !&#x3D;&#x3D; -1) {
+      this.usuarios[index] &#x3D; {
+        ...this.usuarios[index],
+        ...formData
+      };
+
+      localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(this.usuarios));
+      this.sesion.email &#x3D; formData.email;
+      localStorage.setItem(&#x27;sesion&#x27;, JSON.stringify(this.sesion));
+
+      alert(&#x27;Datos actualizados correctamente.&#x27;);
+    }
+  }
+
+  validarEdadMinima(minEdad: number): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const fecha &#x3D; new Date(control.value);
+      const hoy &#x3D; new Date();
+      const edad &#x3D; hoy.getFullYear() - fecha.getFullYear();
+      const mes &#x3D; hoy.getMonth() - fecha.getMonth();
+      const dia &#x3D; hoy.getDate() - fecha.getDate();
+
+      const esMayor &#x3D;
+        edad &gt; minEdad ||
+        (edad &#x3D;&#x3D;&#x3D; minEdad &amp;&amp; (mes &gt; 0 || (mes &#x3D;&#x3D;&#x3D; 0 &amp;&amp; dia &gt;&#x3D; 0)));
+
+      return esMayor ? null : { menorEdad: true };
+    };
+  }
+
+  emailPersonalizadoValidator(): ValidatorFn {
+    const regexEmail &#x3D; /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      if (!control.value) return null; // no validar si está vacío, ya lo hace Validators.required
+
+      const valido &#x3D; regexEmail.test(control.value.trim());
+      return valido ? null : { emailInvalido: true };
+    };
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-nav&gt;&lt;/app-nav&gt;
+
+&lt;div class&#x3D;&quot;container d-flex justify-content-center align-items-center mt-5&quot;&gt;
+  &lt;div class&#x3D;&quot;w-100&quot; style&#x3D;&quot;max-width: 500px;&quot;&gt;
+    &lt;h2 class&#x3D;&quot;mb-4 text-center&quot;&gt;Mi Perfil&lt;/h2&gt;
+    &lt;form [formGroup]&#x3D;&quot;perfilForm&quot; (ngSubmit)&#x3D;&quot;guardarCambios()&quot;&gt;
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;label for&#x3D;&quot;nombre&quot; class&#x3D;&quot;form-label&quot;&gt;Nombre&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;nombre&quot; formControlName&#x3D;&quot;nombre&quot;
+          [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: campoInvalido(&#x27;nombre&#x27;) }&quot;&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot; *ngIf&#x3D;&quot;campoInvalido(&#x27;nombre&#x27;)&quot;&gt;El nombre es obligatorio.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;label for&#x3D;&quot;rut&quot; class&#x3D;&quot;form-label&quot;&gt;RUT&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;rut&quot; [value]&#x3D;&quot;rut&quot; readonly&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;form-label&quot;&gt;Correo electrónico&lt;/label&gt;
+        &lt;input type&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot;
+          [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: campoInvalido(&#x27;email&#x27;) }&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;perfilForm.get(&#x27;email&#x27;)?.errors?.[&#x27;emailInvalido&#x27;] &amp;&amp; perfilForm.get(&#x27;email&#x27;)?.touched&quot;
+          class&#x3D;&quot;text-danger&quot;&gt;
+          El formato de correo electrónico no es válido.
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;label for&#x3D;&quot;telefono&quot; class&#x3D;&quot;form-label&quot;&gt;Teléfono&lt;/label&gt;
+        &lt;input type&#x3D;&quot;tel&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;telefono&quot; formControlName&#x3D;&quot;telefono&quot;
+          [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: campoInvalido(&#x27;telefono&#x27;) }&quot;&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot; *ngIf&#x3D;&quot;campoInvalido(&#x27;telefono&#x27;)&quot;&gt;El teléfono debe tener 9 dígitos.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;label for&#x3D;&quot;fechaNacimiento&quot; class&#x3D;&quot;form-label&quot;&gt;Fecha de Nacimiento&lt;/label&gt;
+        &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;fechaNacimiento&quot; formControlName&#x3D;&quot;fechaNacimiento&quot;
+          [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: campoInvalido(&#x27;fechaNacimiento&#x27;) }&quot;&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot; *ngIf&#x3D;&quot;campoInvalido(&#x27;fechaNacimiento&#x27;)&quot;&gt;Debes ser mayor de 13 años.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-dark w-100&quot;&gt;Guardar Cambios&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./profile.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-nav></app-nav><div class="container d-flex justify-content-center align-items-center mt-5">  <div class="w-100" style="max-width: 500px;">    <h2 class="mb-4 text-center">Mi Perfil</h2>    <form [formGroup]="perfilForm" (ngSubmit)="guardarCambios()">      <div class="mb-3">        <label for="nombre" class="form-label">Nombre</label>        <input type="text" class="form-control" id="nombre" formControlName="nombre"          [ngClass]="{ \'is-invalid\': campoInvalido(\'nombre\') }">        <div class="invalid-feedback" *ngIf="campoInvalido(\'nombre\')">El nombre es obligatorio.</div>      </div>      <div class="mb-3">        <label for="rut" class="form-label">RUT</label>        <input type="text" class="form-control" id="rut" [value]="rut" readonly>      </div>      <div class="mb-3">        <label for="email" class="form-label">Correo electrónico</label>        <input type="email" class="form-control" id="email" formControlName="email"          [ngClass]="{ \'is-invalid\': campoInvalido(\'email\') }">        <div *ngIf="perfilForm.get(\'email\')?.errors?.[\'emailInvalido\'] && perfilForm.get(\'email\')?.touched"          class="text-danger">          El formato de correo electrónico no es válido.        </div>      </div>      <div class="mb-3">        <label for="telefono" class="form-label">Teléfono</label>        <input type="tel" class="form-control" id="telefono" formControlName="telefono"          [ngClass]="{ \'is-invalid\': campoInvalido(\'telefono\') }">        <div class="invalid-feedback" *ngIf="campoInvalido(\'telefono\')">El teléfono debe tener 9 dígitos.</div>      </div>      <div class="mb-3">        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>        <input type="date" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento"          [ngClass]="{ \'is-invalid\': campoInvalido(\'fechaNacimiento\') }">        <div class="invalid-feedback" *ngIf="campoInvalido(\'fechaNacimiento\')">Debes ser mayor de 13 años.</div>      </div>      <button type="submit" class="btn btn-dark w-100">Guardar Cambios</button>    </form>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'FavoritesComponent', 'selector': 'app-favorites'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RecetaCardComponent', 'selector': 'app-receta-card'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProfileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfileComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

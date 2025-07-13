@@ -1,0 +1,72 @@
+<header>
+  <link rel="icon" type="image/x-icon" href="img/logo_mesa_digital.png">
+</header>
+<div class="container d-flex justify-content-center align-items-center login-container">
+  <div class="login-box text-center">
+    <img src="assets/img/logo_mesa_digital.png" alt="Logo" class="logo" />
+    <h2 class="mb-4">Registro de Usuario</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <!-- Nombre -->
+      <div class="mb-3 text-start">
+        <label class="form-label">Nombre completo</label>
+        <input type="text" formControlName="nombre" class="form-control" [ngClass]="{'is-invalid': submitted && f['nombre'].invalid}" />
+        <div class="invalid-feedback">Este campo es obligatorio.</div>
+      </div>
+
+      <!-- RUT -->
+      <div class="mb-3 text-start">
+        <label class="form-label">RUT</label>
+        <input type="text" formControlName="rut" class="form-control" [ngClass]="{'is-invalid': submitted && f['rut'].invalid}" />
+        <div class="invalid-feedback">RUT inválido.</div>
+      </div>
+
+      <!-- Fecha Nacimiento -->
+      <div class="mb-3 text-start">
+        <label class="form-label">Fecha de nacimiento</label>
+        <input type="date" formControlName="fechaNacimiento" class="form-control" [ngClass]="{'is-invalid': submitted && f['fechaNacimiento'].invalid}" />
+        <div class="invalid-feedback">Debes tener al menos 13 años.</div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3 text-start">
+        <label class="form-label">Correo electrónico</label>
+        <input type="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': submitted && f['email'].invalid}" />
+        <div class="invalid-feedback">Correo inválido.</div>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="mb-3 text-start">
+        <label class="form-label">Teléfono</label>
+        <input type="tel" formControlName="telefono" class="form-control" [ngClass]="{'is-invalid': submitted && f['telefono'].invalid}" />
+        <div class="invalid-feedback">Debe tener 9 dígitos.</div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3 text-start">
+        <label class="form-label">Contraseña</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': submitted && f['password'].invalid}" />
+        <div class="invalid-feedback">
+          Mínimo 8 caracteres, mayúscula, minúscula, número y símbolo.
+        </div>
+      </div>
+
+      <!-- Confirmar -->
+      <div class="mb-3 text-start">
+        <label class="form-label">Confirmar contraseña</label>
+        <input type="password" formControlName="confirmPassword" class="form-control"
+               [ngClass]="{'is-invalid': submitted && (f['confirmPassword'].invalid || registerForm.hasError('noCoincide'))}" />
+        <div class="invalid-feedback">
+          Las contraseñas deben coincidir.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-dark w-100">Registrarse</button>
+    </form>
+
+    <div class="mt-4">
+      ¿Ya tienes cuenta?
+      <a routerLink="/login" class="fw-bold">Inicia sesión</a>
+    </div>
+  </div>
+</div>

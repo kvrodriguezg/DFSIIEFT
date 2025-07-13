@@ -1,0 +1,744 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >RecetasService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/recetas.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicio para gestionar las recetas favoritas de los usuarios.
+Se encarga de obtener, guardar y alternar el estado de favoritos usando localStorage.</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#recetasPorCategoria" >recetasPorCategoria</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getRecetasPorCategoria" >getRecetasPorCategoria</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="193" class="link-to-prism">src/app/services/recetas.service.ts:193</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRecetasPorCategoria"></a>
+                    <span class="name">
+                        <span ><b>getRecetasPorCategoria</b></span>
+                        <a href="#getRecetasPorCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRecetasPorCategoria()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/services/recetas.service.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recetasPorCategoria"></a>
+                    <span class="name">
+                        <span ><b>recetasPorCategoria</b></span>
+                        <a href="#recetasPorCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    desayunos: [
+      {
+        nombre: &#x27;Tostadas Francesas con Frutas y Sirope de Arce&#x27;,
+        imagen: &#x27;assets/img/tostadas_francesas.png&#x27;,
+        modalId: &#x27;tostadasFrancesasModal&#x27;,
+        descripcion: &#x27;Un clásico reconfortante y versátil, ideal para empezar el día con energía.&#x27;,
+        tiempoPreparacion: &#x27;10 minutos&#x27;,
+        tiempoCoccion: &#x27;10-15 minutos&#x27;,
+        porciones: &#x27;2&#x27;,
+        ingredientes: [
+          &#x27;4 rebanadas de pan de molde&#x27;,
+          &#x27;2 huevos grandes&#x27;,
+          &#x27;120 ml (1/2 taza) de leche&#x27;,
+          &#x27;1 cucharadita de extracto de vainilla&#x27;,
+          &#x27;½ cucharadita de canela en polvo&#x27;,
+          &#x27;Una pizca de nuez moscada (opcional)&#x27;,
+          &#x27;1 cucharada de azúcar (opcional)&#x27;,
+          &#x27;1 cucharada de mantequilla o aceite vegetal&#x27;
+        ],
+        servir: [
+          &#x27;Frutas frescas (frutos rojos, plátano, kiwi)&#x27;,
+          &#x27;Sirope de arce o miel&#x27;,
+          &#x27;Azúcar glas (opcional)&#x27;
+        ],
+        instrucciones: [
+          &#x27;Bate los huevos con leche, vainilla, canela, nuez moscada y azúcar.&#x27;,
+          &#x27;Sumerge el pan en la mezcla sin que se deshaga.&#x27;,
+          &#x27;Calienta mantequilla en sartén a fuego medio.&#x27;,
+          &#x27;Dora cada lado 2-4 minutos hasta crujiente.&#x27;,
+          &#x27;Sirve con frutas, sirope de arce y azúcar glas si deseas.&#x27;
+        ]
+      }
+    ],
+    almuerzos: [
+      {
+        nombre: &#x27;Bowl de Curry de Lentejas Rojo Rápido&#x27;,
+        imagen: &#x27;assets/img/curry_lentejas.png&#x27;,
+        modalId: &#x27;curryLentejasModal&#x27;,
+        descripcion: &#x27;Un curry reconfortante y lleno de sabor, perfecto para un almuerzo caliente y nutritivo.&#x27;,
+        tiempoPreparacion: &#x27;10 minutos&#x27;,
+        tiempoCoccion: &#x27;25-30 minutos&#x27;,
+        porciones: &#x27;3-4&#x27;,
+        ingredientes: [
+          &#x27;1 cucharada de aceite de coco o vegetal&#x27;,
+          &#x27;1 cebolla mediana, picada&#x27;,
+          &#x27;2 dientes de ajo, picados&#x27;,
+          &#x27;1 trozo de jengibre (2 cm), rallado&#x27;,
+          &#x27;1 cucharada de pasta de curry rojo&#x27;,
+          &#x27;1 lata de tomate triturado&#x27;,
+          &#x27;1 lata de leche de coco&#x27;,
+          &#x27;1 taza de lentejas rojas, enjuagadas&#x27;,
+          &#x27;3 tazas de caldo de verduras&#x27;,
+          &#x27;1 zanahoria en cubos&#x27;,
+          &#x27;1 taza de espinacas frescas&#x27;,
+          &#x27;Sal y pimienta al gusto&#x27;
+        ],
+        servir: [
+          &#x27;Arroz basmati o integral&#x27;,
+          &#x27;Cilantro fresco picado&#x27;,
+          &#x27;Gajos de limón o lima (opcional)&#x27;
+        ],
+        instrucciones: [
+          &#x27;Sofríe la cebolla con aceite hasta transparente.&#x27;,
+          &#x27;Agrega ajo y jengibre, cocina 1-2 minutos más.&#x27;,
+          &#x27;Añade pasta de curry, mezcla 1 minuto.&#x27;,
+          &#x27;Incorpora tomate y leche de coco.&#x27;,
+          &#x27;Agrega lentejas y caldo, cocina 15-20 minutos.&#x27;,
+          &#x27;A mitad, incorpora la zanahoria.&#x27;,
+          &#x27;Al final, añade espinacas y mezcla.&#x27;,
+          &#x27;Corrige sazón y sirve caliente con arroz y cilantro.&#x27;
+        ]
+      }
+    ],
+    veganas: [
+      {
+        nombre: &#x27;Tacos de Lentejas Especiadas con Salsa de Aguacate y Cilantro&#x27;,
+        imagen: &#x27;assets/img/tacos_lentejas.png&#x27;,
+        modalId: &#x27;tacosLentejasModal&#x27;,
+        descripcion: &#x27;Una opción vegana sabrosa, nutritiva y con un toque mexicano, perfecta para un almuerzo o cena ligera.&#x27;,
+        tiempoPreparacion: &#x27;15 minutos&#x27;,
+        tiempoCoccion: &#x27;25-30 minutos&#x27;,
+        porciones: &#x27;4-6&#x27;,
+        ingredientes: [
+          &#x27;1 cucharada de aceite de oliva&#x27;,
+          &#x27;1 cebolla mediana, picada finamente&#x27;,
+          &#x27;2 dientes de ajo, picados&#x27;,
+          &#x27;1 pimiento rojo en cubos&#x27;,
+          &#x27;1 taza de lentejas pardinas o verdes, enjuagadas&#x27;,
+          &#x27;3 tazas de caldo de verduras&#x27;,
+          &#x27;1 lata (400g) de tomate triturado&#x27;,
+          &#x27;1 cucharadita de comino&#x27;,
+          &#x27;1 cucharadita de pimentón dulce&#x27;,
+          &#x27;½ cucharadita de chile en polvo&#x27;,
+          &#x27;1 cucharadita de orégano seco&#x27;,
+          &#x27;Sal y pimienta al gusto&#x27;
+        ],
+        servir: [
+          &#x27;Tortillas de maíz o trigo&#x27;,
+          &#x27;Lechuga picada&#x27;,
+          &#x27;Tomate en cubos&#x27;,
+          &#x27;Cebolla morada picada&#x27;,
+          &#x27;Gajos de limón/lima&#x27;
+        ],
+        instrucciones: [
+          &#x27;Sofríe cebolla, luego ajo y pimiento.&#x27;,
+          &#x27;Agrega especias y tomate, mezcla.&#x27;,
+          &#x27;Agrega lentejas y caldo, cocina 25 min.&#x27;,
+          &#x27;Procesa aguacate, cilantro, limón, agua y sal para salsa.&#x27;,
+          &#x27;Calienta tortillas y arma los tacos con todos los ingredientes.&#x27;
+        ]
+      }
+    ],
+    postres: [
+      {
+        nombre: &#x27;Mousse de Chocolate Clásico (sin huevo crudo)&#x27;,
+        imagen: &#x27;assets/img/mousse_chocolate.png&#x27;,
+        modalId: &#x27;mousseChocolateModal&#x27;,
+        descripcion: &#x27;Un postre elegante y cremoso, perfecto para cualquier ocasión.&#x27;,
+        tiempoPreparacion: &#x27;20 minutos&#x27;,
+        tiempoCoccion: &#x27;Refrigeración: 2-4 horas&#x27;,
+        porciones: &#x27;4-6&#x27;,
+        ingredientes: [
+          &#x27;200g de chocolate semi-amargo (mínimo 60% cacao), picado&#x27;,
+          &#x27;100ml de leche entera&#x27;,
+          &#x27;50g de azúcar&#x27;,
+          &#x27;300ml de crema de leche (mín. 35% grasa), fría&#x27;,
+          &#x27;1 cucharadita de vainilla&#x27;,
+          &#x27;Una pizca de sal (opcional)&#x27;
+        ],
+        servir: [
+          &#x27;Virutas de chocolate&#x27;,
+          &#x27;Cacao en polvo&#x27;,
+          &#x27;Frutos rojos&#x27;,
+          &#x27;Crema batida&#x27;
+        ],
+        instrucciones: [
+          &#x27;Calienta la leche y derrite el chocolate con azúcar.&#x27;,
+          &#x27;Enfría la mezcla y agrega vainilla y sal.&#x27;,
+          &#x27;Bate la crema a picos suaves.&#x27;,
+          &#x27;Integra suavemente con la mezcla de chocolate.&#x27;,
+          &#x27;Refrigera mínimo 2-4 horas.&#x27;,
+          &#x27;Sirve decorando a gusto.&#x27;
+        ]
+      },
+      {
+        nombre: &#x27;Brownies de Chocolate con Nuez (Súper Húmedos)&#x27;,
+        imagen: &#x27;assets/img/brownies_chocolate.png&#x27;,
+        modalId: &#x27;brownieModal&#x27;,
+        descripcion: &#x27;Un clásico irresistible, perfectos para compartir o para un antojo dulce.&#x27;,
+        tiempoPreparacion: &#x27;15 minutos&#x27;,
+        tiempoCoccion: &#x27;25-30 minutos&#x27;,
+        porciones: &#x27;9-12&#x27;,
+        ingredientes: [
+          &#x27;125g de mantequilla sin sal&#x27;,
+          &#x27;150g de chocolate semi-amargo (mínimo 60% cacao)&#x27;,
+          &#x27;2 huevos grandes&#x27;,
+          &#x27;200g de azúcar&#x27;,
+          &#x27;1 cucharadita de vainilla&#x27;,
+          &#x27;75g de harina todo uso&#x27;,
+          &#x27;30g de cacao en polvo sin azúcar&#x27;,
+          &#x27;½ cucharadita de sal&#x27;,
+          &#x27;100g de nueces picadas (opcional)&#x27;
+        ],
+        servir: [
+          &#x27;Pueden servirse con helado o frutas frescas&#x27;
+        ],
+        instrucciones: [
+          &#x27;Precalienta el horno a 180°C, engrasa molde 20x20.&#x27;,
+          &#x27;Derrite mantequilla con chocolate, deja entibiar.&#x27;,
+          &#x27;Bate huevos, azúcar y vainilla.&#x27;,
+          &#x27;Mezcla con chocolate derretido.&#x27;,
+          &#x27;Agrega harina, cacao y sal tamizados.&#x27;,
+          &#x27;Incorpora nueces.&#x27;,
+          &#x27;Vierte en molde y hornea 25-30 min.&#x27;,
+          &#x27;Enfría antes de cortar para mejor textura.&#x27;
+        ]
+      }
+    ]
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/recetas.service.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+/**
+ * Servicio para gestionar las recetas favoritas de los usuarios.
+ * Se encarga de obtener, guardar y alternar el estado de favoritos usando localStorage.
+ *
+ * @export
+ * @class FavoritosService
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class RecetasService {
+
+  recetasPorCategoria: any &#x3D; {
+    desayunos: [
+      {
+        nombre: &#x27;Tostadas Francesas con Frutas y Sirope de Arce&#x27;,
+        imagen: &#x27;assets/img/tostadas_francesas.png&#x27;,
+        modalId: &#x27;tostadasFrancesasModal&#x27;,
+        descripcion: &#x27;Un clásico reconfortante y versátil, ideal para empezar el día con energía.&#x27;,
+        tiempoPreparacion: &#x27;10 minutos&#x27;,
+        tiempoCoccion: &#x27;10-15 minutos&#x27;,
+        porciones: &#x27;2&#x27;,
+        ingredientes: [
+          &#x27;4 rebanadas de pan de molde&#x27;,
+          &#x27;2 huevos grandes&#x27;,
+          &#x27;120 ml (1/2 taza) de leche&#x27;,
+          &#x27;1 cucharadita de extracto de vainilla&#x27;,
+          &#x27;½ cucharadita de canela en polvo&#x27;,
+          &#x27;Una pizca de nuez moscada (opcional)&#x27;,
+          &#x27;1 cucharada de azúcar (opcional)&#x27;,
+          &#x27;1 cucharada de mantequilla o aceite vegetal&#x27;
+        ],
+        servir: [
+          &#x27;Frutas frescas (frutos rojos, plátano, kiwi)&#x27;,
+          &#x27;Sirope de arce o miel&#x27;,
+          &#x27;Azúcar glas (opcional)&#x27;
+        ],
+        instrucciones: [
+          &#x27;Bate los huevos con leche, vainilla, canela, nuez moscada y azúcar.&#x27;,
+          &#x27;Sumerge el pan en la mezcla sin que se deshaga.&#x27;,
+          &#x27;Calienta mantequilla en sartén a fuego medio.&#x27;,
+          &#x27;Dora cada lado 2-4 minutos hasta crujiente.&#x27;,
+          &#x27;Sirve con frutas, sirope de arce y azúcar glas si deseas.&#x27;
+        ]
+      }
+    ],
+    almuerzos: [
+      {
+        nombre: &#x27;Bowl de Curry de Lentejas Rojo Rápido&#x27;,
+        imagen: &#x27;assets/img/curry_lentejas.png&#x27;,
+        modalId: &#x27;curryLentejasModal&#x27;,
+        descripcion: &#x27;Un curry reconfortante y lleno de sabor, perfecto para un almuerzo caliente y nutritivo.&#x27;,
+        tiempoPreparacion: &#x27;10 minutos&#x27;,
+        tiempoCoccion: &#x27;25-30 minutos&#x27;,
+        porciones: &#x27;3-4&#x27;,
+        ingredientes: [
+          &#x27;1 cucharada de aceite de coco o vegetal&#x27;,
+          &#x27;1 cebolla mediana, picada&#x27;,
+          &#x27;2 dientes de ajo, picados&#x27;,
+          &#x27;1 trozo de jengibre (2 cm), rallado&#x27;,
+          &#x27;1 cucharada de pasta de curry rojo&#x27;,
+          &#x27;1 lata de tomate triturado&#x27;,
+          &#x27;1 lata de leche de coco&#x27;,
+          &#x27;1 taza de lentejas rojas, enjuagadas&#x27;,
+          &#x27;3 tazas de caldo de verduras&#x27;,
+          &#x27;1 zanahoria en cubos&#x27;,
+          &#x27;1 taza de espinacas frescas&#x27;,
+          &#x27;Sal y pimienta al gusto&#x27;
+        ],
+        servir: [
+          &#x27;Arroz basmati o integral&#x27;,
+          &#x27;Cilantro fresco picado&#x27;,
+          &#x27;Gajos de limón o lima (opcional)&#x27;
+        ],
+        instrucciones: [
+          &#x27;Sofríe la cebolla con aceite hasta transparente.&#x27;,
+          &#x27;Agrega ajo y jengibre, cocina 1-2 minutos más.&#x27;,
+          &#x27;Añade pasta de curry, mezcla 1 minuto.&#x27;,
+          &#x27;Incorpora tomate y leche de coco.&#x27;,
+          &#x27;Agrega lentejas y caldo, cocina 15-20 minutos.&#x27;,
+          &#x27;A mitad, incorpora la zanahoria.&#x27;,
+          &#x27;Al final, añade espinacas y mezcla.&#x27;,
+          &#x27;Corrige sazón y sirve caliente con arroz y cilantro.&#x27;
+        ]
+      }
+    ],
+    veganas: [
+      {
+        nombre: &#x27;Tacos de Lentejas Especiadas con Salsa de Aguacate y Cilantro&#x27;,
+        imagen: &#x27;assets/img/tacos_lentejas.png&#x27;,
+        modalId: &#x27;tacosLentejasModal&#x27;,
+        descripcion: &#x27;Una opción vegana sabrosa, nutritiva y con un toque mexicano, perfecta para un almuerzo o cena ligera.&#x27;,
+        tiempoPreparacion: &#x27;15 minutos&#x27;,
+        tiempoCoccion: &#x27;25-30 minutos&#x27;,
+        porciones: &#x27;4-6&#x27;,
+        ingredientes: [
+          &#x27;1 cucharada de aceite de oliva&#x27;,
+          &#x27;1 cebolla mediana, picada finamente&#x27;,
+          &#x27;2 dientes de ajo, picados&#x27;,
+          &#x27;1 pimiento rojo en cubos&#x27;,
+          &#x27;1 taza de lentejas pardinas o verdes, enjuagadas&#x27;,
+          &#x27;3 tazas de caldo de verduras&#x27;,
+          &#x27;1 lata (400g) de tomate triturado&#x27;,
+          &#x27;1 cucharadita de comino&#x27;,
+          &#x27;1 cucharadita de pimentón dulce&#x27;,
+          &#x27;½ cucharadita de chile en polvo&#x27;,
+          &#x27;1 cucharadita de orégano seco&#x27;,
+          &#x27;Sal y pimienta al gusto&#x27;
+        ],
+        servir: [
+          &#x27;Tortillas de maíz o trigo&#x27;,
+          &#x27;Lechuga picada&#x27;,
+          &#x27;Tomate en cubos&#x27;,
+          &#x27;Cebolla morada picada&#x27;,
+          &#x27;Gajos de limón/lima&#x27;
+        ],
+        instrucciones: [
+          &#x27;Sofríe cebolla, luego ajo y pimiento.&#x27;,
+          &#x27;Agrega especias y tomate, mezcla.&#x27;,
+          &#x27;Agrega lentejas y caldo, cocina 25 min.&#x27;,
+          &#x27;Procesa aguacate, cilantro, limón, agua y sal para salsa.&#x27;,
+          &#x27;Calienta tortillas y arma los tacos con todos los ingredientes.&#x27;
+        ]
+      }
+    ],
+    postres: [
+      {
+        nombre: &#x27;Mousse de Chocolate Clásico (sin huevo crudo)&#x27;,
+        imagen: &#x27;assets/img/mousse_chocolate.png&#x27;,
+        modalId: &#x27;mousseChocolateModal&#x27;,
+        descripcion: &#x27;Un postre elegante y cremoso, perfecto para cualquier ocasión.&#x27;,
+        tiempoPreparacion: &#x27;20 minutos&#x27;,
+        tiempoCoccion: &#x27;Refrigeración: 2-4 horas&#x27;,
+        porciones: &#x27;4-6&#x27;,
+        ingredientes: [
+          &#x27;200g de chocolate semi-amargo (mínimo 60% cacao), picado&#x27;,
+          &#x27;100ml de leche entera&#x27;,
+          &#x27;50g de azúcar&#x27;,
+          &#x27;300ml de crema de leche (mín. 35% grasa), fría&#x27;,
+          &#x27;1 cucharadita de vainilla&#x27;,
+          &#x27;Una pizca de sal (opcional)&#x27;
+        ],
+        servir: [
+          &#x27;Virutas de chocolate&#x27;,
+          &#x27;Cacao en polvo&#x27;,
+          &#x27;Frutos rojos&#x27;,
+          &#x27;Crema batida&#x27;
+        ],
+        instrucciones: [
+          &#x27;Calienta la leche y derrite el chocolate con azúcar.&#x27;,
+          &#x27;Enfría la mezcla y agrega vainilla y sal.&#x27;,
+          &#x27;Bate la crema a picos suaves.&#x27;,
+          &#x27;Integra suavemente con la mezcla de chocolate.&#x27;,
+          &#x27;Refrigera mínimo 2-4 horas.&#x27;,
+          &#x27;Sirve decorando a gusto.&#x27;
+        ]
+      },
+      {
+        nombre: &#x27;Brownies de Chocolate con Nuez (Súper Húmedos)&#x27;,
+        imagen: &#x27;assets/img/brownies_chocolate.png&#x27;,
+        modalId: &#x27;brownieModal&#x27;,
+        descripcion: &#x27;Un clásico irresistible, perfectos para compartir o para un antojo dulce.&#x27;,
+        tiempoPreparacion: &#x27;15 minutos&#x27;,
+        tiempoCoccion: &#x27;25-30 minutos&#x27;,
+        porciones: &#x27;9-12&#x27;,
+        ingredientes: [
+          &#x27;125g de mantequilla sin sal&#x27;,
+          &#x27;150g de chocolate semi-amargo (mínimo 60% cacao)&#x27;,
+          &#x27;2 huevos grandes&#x27;,
+          &#x27;200g de azúcar&#x27;,
+          &#x27;1 cucharadita de vainilla&#x27;,
+          &#x27;75g de harina todo uso&#x27;,
+          &#x27;30g de cacao en polvo sin azúcar&#x27;,
+          &#x27;½ cucharadita de sal&#x27;,
+          &#x27;100g de nueces picadas (opcional)&#x27;
+        ],
+        servir: [
+          &#x27;Pueden servirse con helado o frutas frescas&#x27;
+        ],
+        instrucciones: [
+          &#x27;Precalienta el horno a 180°C, engrasa molde 20x20.&#x27;,
+          &#x27;Derrite mantequilla con chocolate, deja entibiar.&#x27;,
+          &#x27;Bate huevos, azúcar y vainilla.&#x27;,
+          &#x27;Mezcla con chocolate derretido.&#x27;,
+          &#x27;Agrega harina, cacao y sal tamizados.&#x27;,
+          &#x27;Incorpora nueces.&#x27;,
+          &#x27;Vierte en molde y hornea 25-30 min.&#x27;,
+          &#x27;Enfría antes de cortar para mejor textura.&#x27;
+        ]
+      }
+    ]
+  };
+
+  constructor() { }
+
+  getRecetasPorCategoria() {
+    return this.recetasPorCategoria;
+  }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'RecetasService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

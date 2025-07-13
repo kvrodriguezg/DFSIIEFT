@@ -1,0 +1,50 @@
+<app-nav></app-nav>
+
+<header class="text-center my-4">
+  <link rel="icon" type="image/x-icon" href="img/logo_mesa_digital.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <img src="assets/img/logo_mesa_digital.png" class="logo mb-3" alt="Logo" />
+  <h1 class="text-capitalize">{{ tipo }}</h1>
+</header>
+
+<main class="categorias d-flex flex-wrap justify-content-center gap-4">
+  <app-receta-card
+    *ngFor="let receta of recetas"
+    [receta]="receta"
+    (verDetalle)="abrirModal(receta)"
+    (toggleFavoritoClick)="manejarFavorito($event)">
+  </app-receta-card>
+</main>
+
+<!-- Modal único -->
+<div class="modal fade" id="modalReceta" tabindex="-1" #modalReceta>
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content" *ngIf="recetaSeleccionada">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ recetaSeleccionada.nombre }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ recetaSeleccionada.descripcion }}</p>
+
+        <h5>Ingredientes:</h5>
+        <ul>
+          <li *ngFor="let ing of recetaSeleccionada.ingredientes">{{ ing }}</li>
+        </ul>
+
+        <h6 *ngIf="recetaSeleccionada.servir">Para servir:</h6>
+        <ul *ngIf="recetaSeleccionada.servir">
+          <li *ngFor="let item of recetaSeleccionada.servir">{{ item }}</li>
+        </ul>
+
+        <h5>Instrucciones:</h5>
+        <ol>
+          <li *ngFor="let paso of recetaSeleccionada.instrucciones">{{ paso }}</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

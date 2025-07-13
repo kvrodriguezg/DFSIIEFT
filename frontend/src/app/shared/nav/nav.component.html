@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" [routerLink]="['/']">
+      <img src="assets/img/logo_nav.png" alt="Logo" width="40" height="40"
+           class="d-inline-block align-text-top me-2" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/categoria/desayunos']">Desayunos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/categoria/almuerzos']">Almuerzos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/categoria/veganas']">Veganas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/categoria/postres']">Postres</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <ng-container *ngIf="sesion?.logueado; else sinSesion">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/mi-perfil']">Mi Perfil</a>
+          </li>
+          <li *ngIf="esAdmin" class="nav-item">
+            <a class="nav-link" [routerLink]="['/admin']">Panel Admin</a>
+          </li>
+          <li *ngIf="esNormal" class="nav-item">
+            <a class="nav-link" [routerLink]="['/favoritos']">Mis Favoritos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="cerrarSesion()">Cerrar sesión</a>
+          </li>
+        </ng-container>
+        <ng-template #sinSesion>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>

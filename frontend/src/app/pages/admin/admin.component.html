@@ -1,0 +1,45 @@
+<app-nav></app-nav>
+<header class="text-center mt-4">
+    <link rel="icon" type="image/x-icon" href="img/logo_mesa_digital.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <img src="assets/img/logo_mesa_digital.png" alt="Logo Mesa Digital" class="logo mb-3" />
+    <h1>Panel de Administración</h1>
+</header>
+
+<main class="container my-5">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Rut</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Tipo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ usuario.nombre || '-' }}</td>
+                    <td>{{ usuario.rut || '-' }}</td>
+                    <td>{{ usuario.email || '-' }}</td>
+                    <td>{{ usuario.telefono || '-' }}</td>
+                    <td>{{ usuario.fechaNacimiento || '-' }}</td>
+                    <td>{{ usuario.tipo || 'normal' }}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm me-2" (click)="editarUsuario(i)">
+                            <i class="ti ti-edit"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="eliminarUsuario(i)">
+                            <i class="ti ti-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

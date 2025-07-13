@@ -1,0 +1,35 @@
+<app-nav></app-nav>
+
+<header class="text-center my-4">
+  <link rel="icon" type="image/x-icon" href="img/logo_mesa_digital.png">
+  <img src="assets/img/logo_mesa_digital.png" alt="Logo Mesa Digital" class="logo mb-3" />
+  <h1>Bienvenido a La Mesa Digital</h1>
+  <p>Explora nuestras amplias recetas!!</p>
+</header>
+
+<main class="categorias d-flex flex-wrap justify-content-center gap-4">
+  <div class="categoria text-center">
+    <a [routerLink]="['/categoria/desayunos']">
+      <img src="assets/img/desayunos.png" alt="Desayunos" />
+      <h2>Desayunos</h2>
+    </a>
+  </div>
+  <div class="categoria text-center">
+    <a [routerLink]="['/categoria/almuerzos']">
+      <img src="assets/img/almuerzos.png" alt="Almuerzos" />
+      <h2>Almuerzos</h2>
+    </a>
+  </div>
+  <div class="categoria text-center">
+    <a [routerLink]="['/categoria/veganas']">
+      <img src="assets/img/veganas.png" alt="Veganas" />
+      <h2>Veganas</h2>
+    </a>
+  </div>
+  <div class="categoria text-center">
+    <a [routerLink]="['/categoria/postres']">
+      <img src="assets/img/postres.png" alt="Postres" />
+      <h2>Postres</h2>
+    </a>
+  </div>
+</main>

@@ -1,0 +1,977 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  RegisterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/auth/register/register.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para el registro de nuevos usuarios.
+Incluye validaciones personalizadas para el RUT, la edad mínima y la coincidencia de contraseñas.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-register</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./register.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./register.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#registerForm" >registerForm</a>
+                            </li>
+                            <li>
+                                <a href="#submitted" >submitted</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#passwordsIguales" >passwordsIguales</a>
+                            </li>
+                            <li>
+                                <a href="#validarEdad" >validarEdad</a>
+                            </li>
+                            <li>
+                                <a href="#validarRut" >validarRut</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#f" >f</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/register/register.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/app/auth/register/register.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordsIguales"></a>
+                    <span class="name">
+                        <span ><b>passwordsIguales</b></span>
+                        <a href="#passwordsIguales"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>passwordsIguales(group: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/auth/register/register.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>group</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ noCoincide: boolean; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validarEdad"></a>
+                    <span class="name">
+                        <span ><b>validarEdad</b></span>
+                        <a href="#validarEdad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validarEdad(control: AbstractControl)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/auth/register/register.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>control</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ edadInvalida: boolean; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validarRut"></a>
+                    <span class="name">
+                        <span ><b>validarRut</b></span>
+                        <a href="#validarRut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validarRut(control: AbstractControl)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/auth/register/register.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>control</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ rutInvalido: boolean; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerForm"></a>
+                    <span class="name">
+                        <span ><b>registerForm</b></span>
+                        <a href="#registerForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/auth/register/register.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitted"></a>
+                    <span class="name">
+                        <span ><b>submitted</b></span>
+                        <a href="#submitted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/register/register.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="f"></a>
+                        <span class="name"><b>f</b><a href="#f"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>f()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/auth/register/register.component.ts:35</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators, AbstractControl } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+/**
+ * Componente para el registro de nuevos usuarios.
+ * Incluye validaciones personalizadas para el RUT, la edad mínima y la coincidencia de contraseñas.
+ *
+ * @export
+ * @class RegisterComponent
+ */
+@Component({
+  selector: &#x27;app-register&#x27;,
+  templateUrl: &#x27;./register.component.html&#x27;,
+  styleUrls: [&#x27;./register.component.css&#x27;]
+})
+export class RegisterComponent {
+  registerForm: FormGroup;
+  submitted &#x3D; false;
+
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.registerForm &#x3D; this.fb.group({
+      nombre: [&#x27;&#x27;, Validators.required],
+      rut: [&#x27;&#x27;, [Validators.required, this.validarRut]],
+      fechaNacimiento: [&#x27;&#x27;, [Validators.required, this.validarEdad]],
+      email: [&#x27;&#x27;, [Validators.required, Validators.email]],
+      telefono: [&#x27;&#x27;, [Validators.required, Validators.pattern(/^\d{9}$/)]],
+      password: [&#x27;&#x27;, [
+        Validators.required,
+        Validators.pattern(/^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\d)(?&#x3D;.*[^A-Za-z\d]).{8,20}$/)
+      ]],
+      confirmPassword: [&#x27;&#x27;, Validators.required]
+    }, { validators: this.passwordsIguales });
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.registerForm.controls;
+  }
+
+  passwordsIguales(group: FormGroup) {
+    const pass &#x3D; group.get(&#x27;password&#x27;)?.value;
+    const confirm &#x3D; group.get(&#x27;confirmPassword&#x27;)?.value;
+    return pass &#x3D;&#x3D;&#x3D; confirm ? null : { noCoincide: true };
+  }
+
+  validarEdad(control: AbstractControl) {
+    const fecha &#x3D; new Date(control.value);
+    const hoy &#x3D; new Date();
+    const edad &#x3D; hoy.getFullYear() - fecha.getFullYear();
+    const cumple &#x3D; (
+      edad &gt; 13 ||
+      (edad &#x3D;&#x3D;&#x3D; 13 &amp;&amp; hoy &gt;&#x3D; new Date(fecha.setFullYear(fecha.getFullYear() + 13)))
+    );
+    return cumple ? null : { edadInvalida: true };
+  }
+
+  validarRut(control: AbstractControl) {
+    const rut &#x3D; (control.value || &#x27;&#x27;).toUpperCase().replace(/\./g, &#x27;&#x27;).replace(/-/g, &#x27;&#x27;);
+    if (rut.length &lt; 8) return { rutInvalido: true };
+
+    const cuerpo &#x3D; rut.slice(0, -1);
+    const dv &#x3D; rut.slice(-1);
+    if (!/^\d+$/.test(cuerpo)) return { rutInvalido: true };
+
+    let suma &#x3D; 0;
+    let multiplo &#x3D; 2;
+    for (let i &#x3D; cuerpo.length - 1; i &gt;&#x3D; 0; i--) {
+      suma +&#x3D; parseInt(cuerpo.charAt(i), 10) * multiplo;
+      multiplo &#x3D; multiplo &#x3D;&#x3D;&#x3D; 7 ? 2 : multiplo + 1;
+    }
+
+    const resultado &#x3D; 11 - (suma % 11);
+    let dvEsperado &#x3D; resultado &#x3D;&#x3D;&#x3D; 11 ? &#x27;0&#x27; : resultado &#x3D;&#x3D;&#x3D; 10 ? &#x27;K&#x27; : resultado.toString();
+
+    return dv !&#x3D;&#x3D; dvEsperado ? { rutInvalido: true } : null;
+  }
+
+  onSubmit() {
+    this.submitted &#x3D; true;
+    if (this.registerForm.invalid) return;
+
+    const nuevoUsuario &#x3D; {
+      nombre: this.f[&#x27;nombre&#x27;].value,
+      rut: this.f[&#x27;rut&#x27;].value,
+      fechaNacimiento: this.f[&#x27;fechaNacimiento&#x27;].value,
+      email: this.f[&#x27;email&#x27;].value,
+      telefono: this.f[&#x27;telefono&#x27;].value,
+      password: this.f[&#x27;password&#x27;].value,
+      tipo: &#x27;normal&#x27;
+    };
+
+    const usuarios &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarios&#x27;) || &#x27;[]&#x27;);
+    if (usuarios.some((u: any) &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; nuevoUsuario.email)) {
+      alert(&#x27;Ya existe una cuenta con ese correo.&#x27;);
+      return;
+    }
+    if (usuarios.some((u: any) &#x3D;&gt; u.rut &#x3D;&#x3D;&#x3D; nuevoUsuario.rut)) {
+      alert(&#x27;Ya existe una cuenta con ese RUT.&#x27;);
+      return;
+    }
+
+    usuarios.push(nuevoUsuario);
+    localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(usuarios));
+    alert(&#x27;¡Usuario registrado con éxito!&#x27;);
+    this.router.navigate([&#x27;/login&#x27;]);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container d-flex justify-content-center align-items-center login-container&quot;&gt;
+  &lt;div class&#x3D;&quot;login-box text-center&quot;&gt;
+    &lt;img src&#x3D;&quot;assets/img/logo_mesa_digital.png&quot; alt&#x3D;&quot;Logo&quot; class&#x3D;&quot;logo&quot; /&gt;
+    &lt;h2 class&#x3D;&quot;mb-4&quot;&gt;Registro de Usuario&lt;/h2&gt;
+
+    &lt;form [formGroup]&#x3D;&quot;registerForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+      &lt;!-- Nombre --&gt;
+      &lt;div class&#x3D;&quot;mb-3 text-start&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;Nombre completo&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nombre&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: submitted &amp;&amp; f[&#x27;nombre&#x27;].invalid}&quot; /&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;Este campo es obligatorio.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- RUT --&gt;
+      &lt;div class&#x3D;&quot;mb-3 text-start&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;RUT&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;rut&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: submitted &amp;&amp; f[&#x27;rut&#x27;].invalid}&quot; /&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;RUT inválido.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Fecha Nacimiento --&gt;
+      &lt;div class&#x3D;&quot;mb-3 text-start&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;Fecha de nacimiento&lt;/label&gt;
+        &lt;input type&#x3D;&quot;date&quot; formControlName&#x3D;&quot;fechaNacimiento&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: submitted &amp;&amp; f[&#x27;fechaNacimiento&#x27;].invalid}&quot; /&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;Debes tener al menos 13 años.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Email --&gt;
+      &lt;div class&#x3D;&quot;mb-3 text-start&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;Correo electrónico&lt;/label&gt;
+        &lt;input type&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: submitted &amp;&amp; f[&#x27;email&#x27;].invalid}&quot; /&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;Correo inválido.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Teléfono --&gt;
+      &lt;div class&#x3D;&quot;mb-3 text-start&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;Teléfono&lt;/label&gt;
+        &lt;input type&#x3D;&quot;tel&quot; formControlName&#x3D;&quot;telefono&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: submitted &amp;&amp; f[&#x27;telefono&#x27;].invalid}&quot; /&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;Debe tener 9 dígitos.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Password --&gt;
+      &lt;div class&#x3D;&quot;mb-3 text-start&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;Contraseña&lt;/label&gt;
+        &lt;input type&#x3D;&quot;password&quot; formControlName&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: submitted &amp;&amp; f[&#x27;password&#x27;].invalid}&quot; /&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;
+          Mínimo 8 caracteres, mayúscula, minúscula, número y símbolo.
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Confirmar --&gt;
+      &lt;div class&#x3D;&quot;mb-3 text-start&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;Confirmar contraseña&lt;/label&gt;
+        &lt;input type&#x3D;&quot;password&quot; formControlName&#x3D;&quot;confirmPassword&quot; class&#x3D;&quot;form-control&quot;
+               [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: submitted &amp;&amp; (f[&#x27;confirmPassword&#x27;].invalid || registerForm.hasError(&#x27;noCoincide&#x27;))}&quot; /&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;
+          Las contraseñas deben coincidir.
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-dark w-100&quot;&gt;Registrarse&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;div class&#x3D;&quot;mt-4&quot;&gt;
+      ¿Ya tienes cuenta?
+      &lt;a routerLink&#x3D;&quot;/login&quot; class&#x3D;&quot;fw-bold&quot;&gt;Inicia sesión&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./register.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">body {
+    background-color: #f8f9fa;
+}
+
+.login-container {
+    min-height: 100vh;
+}
+
+.login-box {
+    max-width: 400px;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container d-flex justify-content-center align-items-center login-container">  <div class="login-box text-center">    <img src="assets/img/logo_mesa_digital.png" alt="Logo" class="logo" />    <h2 class="mb-4">Registro de Usuario</h2>    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">      <!-- Nombre -->      <div class="mb-3 text-start">        <label class="form-label">Nombre completo</label>        <input type="text" formControlName="nombre" class="form-control" [ngClass]="{\'is-invalid\': submitted && f[\'nombre\'].invalid}" />        <div class="invalid-feedback">Este campo es obligatorio.</div>      </div>      <!-- RUT -->      <div class="mb-3 text-start">        <label class="form-label">RUT</label>        <input type="text" formControlName="rut" class="form-control" [ngClass]="{\'is-invalid\': submitted && f[\'rut\'].invalid}" />        <div class="invalid-feedback">RUT inválido.</div>      </div>      <!-- Fecha Nacimiento -->      <div class="mb-3 text-start">        <label class="form-label">Fecha de nacimiento</label>        <input type="date" formControlName="fechaNacimiento" class="form-control" [ngClass]="{\'is-invalid\': submitted && f[\'fechaNacimiento\'].invalid}" />        <div class="invalid-feedback">Debes tener al menos 13 años.</div>      </div>      <!-- Email -->      <div class="mb-3 text-start">        <label class="form-label">Correo electrónico</label>        <input type="email" formControlName="email" class="form-control" [ngClass]="{\'is-invalid\': submitted && f[\'email\'].invalid}" />        <div class="invalid-feedback">Correo inválido.</div>      </div>      <!-- Teléfono -->      <div class="mb-3 text-start">        <label class="form-label">Teléfono</label>        <input type="tel" formControlName="telefono" class="form-control" [ngClass]="{\'is-invalid\': submitted && f[\'telefono\'].invalid}" />        <div class="invalid-feedback">Debe tener 9 dígitos.</div>      </div>      <!-- Password -->      <div class="mb-3 text-start">        <label class="form-label">Contraseña</label>        <input type="password" formControlName="password" class="form-control" [ngClass]="{\'is-invalid\': submitted && f[\'password\'].invalid}" />        <div class="invalid-feedback">          Mínimo 8 caracteres, mayúscula, minúscula, número y símbolo.        </div>      </div>      <!-- Confirmar -->      <div class="mb-3 text-start">        <label class="form-label">Confirmar contraseña</label>        <input type="password" formControlName="confirmPassword" class="form-control"               [ngClass]="{\'is-invalid\': submitted && (f[\'confirmPassword\'].invalid || registerForm.hasError(\'noCoincide\'))}" />        <div class="invalid-feedback">          Las contraseñas deben coincidir.        </div>      </div>      <button type="submit" class="btn btn-dark w-100">Registrarse</button>    </form>    <div class="mt-4">      ¿Ya tienes cuenta?      <a routerLink="/login" class="fw-bold">Inicia sesión</a>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'FavoritesComponent', 'selector': 'app-favorites'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RecetaCardComponent', 'selector': 'app-receta-card'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'RegisterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RegisterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

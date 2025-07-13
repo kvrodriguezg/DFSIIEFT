@@ -1,0 +1,115 @@
+:root {
+  /* Aquí definimos variables CSS reutilizables. Muy útil para mantener colores, fuentes, etc. */
+  --color-principal: #1f1f1f; /* Texto principal oscuro */
+  --color-secundario: #ff3c38; /* Color de acento (puede ser usado en botones, destacados) */
+  --fondo: #f3f3f3; /* Fondo general de la página */
+  --fuente: 'Lucida Console'; /* Fuente moderna y limpia */
+}
+
+body {
+  /* Estilos generales para toda la página */
+  background-color: var(--fondo); /* Usamos la variable de fondo */
+  font-family: var(--fuente); /* Fuente definida arriba */
+  color: var(--color-principal); /* Color del texto principal */
+  margin: 0; /* Quitamos los márgenes por defecto */
+  padding: 0; /* Quitamos los espacios internos por defecto */
+}
+
+.logo {
+  /* Estilo aplicado a la imagen del logo */
+  display: block; /* Hace que la imagen se comporte como bloque (permite centrar) */
+  width: 150px; /* Ancho fijo */
+  margin: 1rem auto 0; /* Margen superior y centrado horizontal */
+}
+
+header {
+  /* Estilo para el encabezado */
+  text-align: center; /* Centra el texto horizontalmente */
+  padding-bottom: 1rem; /* Espacio debajo del header */
+}
+
+.categorias {
+  /* Contenedor de las categorías (los cuadros) */
+  display: flex; /* Activamos Flexbox para alineación flexible */
+  flex-wrap: wrap; /* Permite que los elementos pasen a nueva línea si no caben */
+  justify-content: center; /* Centra horizontalmente los elementos */
+  gap: 1.5rem; /* Espacio entre cada tarjeta de categoría */
+  padding: 2rem; /* Espacio interno alrededor del contenedor */
+}
+
+.categoria {
+  /* Tarjeta individual de cada categoría */
+  width: 220px; /* Ancho fijo */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave alrededor */
+  transition: transform 0.3s ease; /* Animación al pasar el mouse */
+  text-align: center; /* Texto centrado */
+}
+
+.categoria:hover {
+  /* Estilo cuando el mouse pasa por encima */
+  transform: scale(1.05); /* Agranda ligeramente la tarjeta */
+  color: #89bb7d;
+
+}
+
+.categoria:hover a {
+    color: #89bb7d; /* Este color se aplicará al enlace y, por herencia, al h2 */
+}
+
+.categoria img {
+  /* Estilo para la imagen dentro de la tarjeta */
+  width: 100%; /* Ancho completo del contenedor */
+  height: 160px; /* Altura fija */
+  object-fit: cover; /* Recorta la imagen para que se adapte sin deformarse */
+  border-radius: 12px 12px 0 0; /* Bordes redondeados solo arriba */
+}
+
+.categoria h2,
+.categoria h3 {
+  /* Estilo para los títulos dentro de las tarjetas */
+  margin: 0;
+  padding: 1rem;
+}
+
+.categoria a {
+    text-decoration: none; /* Esto quita el subrayado del enlace */
+    color: #333; /* Color de texto*/
+    display: block; /* Para que todo el área del div sea clickeable a través del enlace */
+    padding: 15px; /* Espaciado interno si el enlace ocupa todo el div */
+}
+
+#volver {
+    display: inline-block; /* Para que margin, padding y border-radius funcionen correctamente */
+    background-color: #6ec49a; /* Un color azul de ejemplo (puedes usar el de Bootstrap Primary) */
+    color: white; /* Texto blanco */
+    padding: 8px 15px; /* Espaciado interno */
+    border-radius: 20px; /* Bordes redondeados (ajusta el valor para más o menos redondo) */
+    text-decoration: none; /* Quitar el subrayado predeterminado del enlace */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+    margin-bottom: 20px; /* Espacio entre el botón y el título H1 si están en la misma línea */
+}
+
+#volver:hover {
+    background-color: #89bb7d; /* Un azul más oscuro al pasar el ratón */
+    color: white; /* Asegura que el texto siga siendo blanco */
+}
+
+
+/* Responsive design: adapta el diseño a pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .categorias {
+    flex-direction: column; /* En celulares, mostrar tarjetas en columna */
+    align-items: center; /* Centrar verticalmente */
+  }
+}
+
+.modal-body {
+    text-align: left; /* Alinea todo el texto a la izquierda */
+}
+
+.modal-backdrop {
+    background-color: #6ec49a;
+}

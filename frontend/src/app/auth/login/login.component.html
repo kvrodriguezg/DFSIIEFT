@@ -1,0 +1,39 @@
+<header>
+  <link rel="icon" type="image/x-icon" href="img/logo_mesa_digital.png">
+</header>
+<div class="container d-flex justify-content-center align-items-center login-container">
+  <div class="login-box text-center">
+    <img src="assets/img/logo_mesa_digital.png" alt="Logo" class="logo" />
+    <h2 class="mb-4">Iniciar Sesión</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3 text-start">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" id="email" formControlName="email" class="form-control" placeholder="nombre@ejemplo.com" />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+          class="invalid-feedback d-block">
+          Correo inválido.
+        </div>
+      </div>
+
+      <div class="mb-3 text-start">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" id="password" formControlName="password" class="form-control" placeholder="Contraseña" />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+          class="invalid-feedback d-block">
+          Contraseña inválida.
+        </div>
+      </div>
+
+      <div class="mb-3 text-end">
+        <a routerLink="/reset-password" class="text-decoration-none small">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <button type="submit" class="btn btn-dark w-100">Ingresar</button>
+    </form>
+
+    <div class="mt-4 small-text">
+      ¿No tienes cuenta? <a routerLink="/register" class="fw-bold">Regístrate</a>
+    </div>
+  </div>
+</div>
