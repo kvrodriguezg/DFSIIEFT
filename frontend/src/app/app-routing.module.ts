@@ -8,6 +8,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { ChefsComponent } from './chefs/chefs.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'favoritos', component: FavoritesComponent },
   { path: 'categoria/:tipo', component: CategoriaComponent },
+  { path: 'chefs', component: ChefsComponent },
   { path: '**', redirectTo: '' }
 ];
 

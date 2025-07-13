@@ -1,0 +1,14 @@
+<app-nav></app-nav>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">👨‍🍳 Nuestro Equipo de Chefs</h2>
+  <!--Se recorren y muestran cada uno de los chefs.-->
+  <div *ngFor="let chef of chefs" class="card mb-3 p-3 shadow">
+    <div class="d-flex align-items-center">
+      <img [src]="chef.foto" class="rounded-circle me-3" width="70" height="70">
+      <div>
+        <h5>{{ chef.nombre }} ({{ chef.pais }})</h5>
+        <p>Especialidad: {{ chef.especialidad }}</p>
+      </div>
+    </div>
+  </div>
+</div>
