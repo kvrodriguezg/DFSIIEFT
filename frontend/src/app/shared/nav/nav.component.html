@@ -27,6 +27,9 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/categoria/postres']">Postres</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/chefs">Chefs</a>
+        </li>
       </ul>
 
       <ul class="navbar-nav ms-auto">
@@ -39,9 +42,6 @@
           </li>
           <li *ngIf="esNormal" class="nav-item">
             <a class="nav-link" [routerLink]="['/favoritos']">Mis Favoritos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/chefs">Chefs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" (click)="cerrarSesion()">Cerrar sesión</a>

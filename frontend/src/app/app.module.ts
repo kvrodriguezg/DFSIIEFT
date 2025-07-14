@@ -18,6 +18,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ChefsComponent } from './chefs/chefs.component';
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AdminComponent, ProfileComponent, FavoritesComponent, HomeComponent, AppComponent, LoginComponent, NavComponent, ResetPasswordComponent, RegisterComponent, RecetaCardComponent, CategoriaComponent, ChefsComponent],
   imports: [HttpClientModule, RouterModule, BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, CommonModule],

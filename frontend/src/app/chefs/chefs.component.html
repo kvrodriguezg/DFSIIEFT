@@ -1,13 +1,62 @@
 <app-nav></app-nav>
 <div class="container mt-5">
   <h2 class="text-center mb-4">👨‍🍳 Nuestro Equipo de Chefs</h2>
-  <!--Se recorren y muestran cada uno de los chefs.-->
+
+  <!-- Formulario solo visible para admin -->
+  <div *ngIf="esAdmin" class="card p-4 mb-4 shadow-sm">
+    <h4>➕ Agregar Chef</h4>
+    <div class="row">
+      <div class="col-md-3">
+        <input [(ngModel)]="nuevoChef.nombre" class="form-control" placeholder="Nombre">
+      </div>
+      <div class="col-md-3">
+        <input [(ngModel)]="nuevoChef.pais" class="form-control" placeholder="País">
+      </div>
+      <div class="col-md-3">
+        <input [(ngModel)]="nuevoChef.especialidad" class="form-control" placeholder="Especialidad">
+      </div>
+      <div class="col-md-3">
+        <input [(ngModel)]="nuevoChef.foto" class="form-control" placeholder="URL Foto">
+      </div>
+    </div>
+    <button class="btn btn-success mt-2" (click)="agregarChef()">Agregar Chef</button>
+  </div>
+
+  <!-- Mostrar chefs -->
   <div *ngFor="let chef of chefs" class="card mb-3 p-3 shadow">
     <div class="d-flex align-items-center">
       <img [src]="chef.foto" class="rounded-circle me-3" width="70" height="70">
       <div>
         <h5>{{ chef.nombre }} ({{ chef.pais }})</h5>
         <p>Especialidad: {{ chef.especialidad }}</p>
+      </div>
+    </div>
+
+    <!-- Solo admin puede eliminar -->
+    <div *ngIf="esAdmin" class="mt-2">
+      <button class="btn btn-sm btn-warning me-2" (click)="abrirModalEditar(chef)">✏️ Editar</button>
+      <button class="btn btn-sm btn-danger" (click)="eliminarChef(chef.id)">🗑️ Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de edición -->
+<div class="modal fade" id="modalEditarChef" tabindex="-1" aria-labelledby="editarChefLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarChefLabel">✏️ Editar Chef</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body" *ngIf="chefEditando">
+        <input [(ngModel)]="chefEditando.nombre" class="form-control mb-2" placeholder="Nombre">
+        <input [(ngModel)]="chefEditando.pais" class="form-control mb-2" placeholder="País">
+        <input [(ngModel)]="chefEditando.especialidad" class="form-control mb-2" placeholder="Especialidad">
+        <input [(ngModel)]="chefEditando.foto" class="form-control mb-2" placeholder="Foto URL">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary" (click)="guardarEdicion()">Guardar cambios</button>
       </div>
     </div>
   </div>
