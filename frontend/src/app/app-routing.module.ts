@@ -8,7 +8,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
-import { ChefsComponent } from './chefs/chefs.component';
+import { ChefsComponent } from './pages/chefs/chefs.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

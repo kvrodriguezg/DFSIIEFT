@@ -16,7 +16,7 @@ import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminComponent } from './pages/admin/admin.component';
-import { ChefsComponent } from './chefs/chefs.component';
+import { ChefsComponent } from './pages/chefs/chefs.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

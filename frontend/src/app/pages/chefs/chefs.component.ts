@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChefsService, Chef } from '../services/chefs.service';
-import { AuthService } from '../services/auth.service';
+import { ChefsService, Chef } from '../../services/chefs.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-chefs',
